@@ -238,7 +238,7 @@ t_give_away([A,B|_] = Ns) ->
     Pb = t_spawn_reg(B, Nb),
     ?assertMatch(ok, t_lookup_everywhere(Na, Ns, Pa)),
     ?assertMatch(ok, t_lookup_everywhere(Nb, Ns, Pb)),
-    ?assertMatch(Pb, t_call(Pa, {apply, gproc, give_away, [Na, Nb]})),
+    ?assertMatch(Pb, t_call(Pa, {apply, gproc, give_away, [Na, Pb]})),
     ?assertMatch(ok, t_lookup_everywhere(Na, Ns, Pb)),
     ?assertMatch(Pa, t_call(Pb, {apply, gproc, give_away, [Na, Pa]})),
     ?assertMatch(ok, t_lookup_everywhere(Na, Ns, Pa)),
